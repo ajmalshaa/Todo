@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+      <p>Completed tasks({{comp.count}})</p>
+        {% for i in comp %}
+  <div class="col-sm-6 p-1">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">{{i.Task}}</h5>
+        <p class="card-text">{{i.Date}}</p>
+
+        <a href="{% url 'open' i.id %}" class="btn btn-primary">Mark as Open</a>
+        <a href="{% url 'delete_update' i.id %}" class="btn btn-danger">Delete</a>
+
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}
